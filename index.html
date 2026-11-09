@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETOS Academy App - concept</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0091b6; --navy:#006799; --deep:#0b3a52; --green:#7cc68d; --orange:#f29a3a;
+  --cream:#f6f1ec; --paper:#ffffff; --ink:#18303d; --muted:#6b7f8a; --line:#e7e1da;
+  --soft-teal:#e3f3f8; --soft-green:#e8f6ec; --soft-orange:#fdf0e1; --soft-rose:#fbe9ec;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);font-family:"Nunito Sans",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,.f{font-family:"Fredoka",system-ui,sans-serif;font-weight:600}
+
+/* ===== prezentare ===== */
+.intro{max-width:1200px;margin:0 auto;padding:56px 24px 8px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.intro img{width:84px;height:84px;border-radius:50%}
+.intro h1{font-size:clamp(28px,4vw,44px);color:var(--deep);line-height:1.1}
+.intro p{color:var(--muted);font-size:17px;max-width:640px;margin-top:8px}
+.tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--soft-teal);padding:6px 10px;border-radius:99px}
+.grid{max-width:1300px;margin:0 auto;padding:36px 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:48px 28px;justify-items:center}
+.shot{display:flex;flex-direction:column;align-items:center;gap:16px}
+.cap{text-align:center;max-width:320px}
+.cap b{font-family:"Fredoka";font-weight:600;font-size:20px;color:var(--deep);display:block}
+.cap span{color:var(--muted);font-size:14.5px}
+
+/* ===== telefon ===== */
+.phone{width:330px;height:714px;border-radius:52px;background:#0d1418;padding:11px;box-shadow:0 30px 60px -20px rgba(11,58,82,.45),0 0 0 2px #2b3a42 inset;position:relative;flex:none}
+.screen{width:100%;height:100%;border-radius:42px;overflow:hidden;background:var(--cream);position:relative;display:flex;flex-direction:column}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:96px;height:28px;background:#000;border-radius:20px;z-index:5}
+.sb{height:46px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:6px 26px 0;font-size:13.5px;font-weight:800}
+.sb .ic{display:flex;gap:5px;align-items:center}
+.sb.light{color:#fff}
+.body{flex:1;overflow:hidden;padding:4px 16px 0;display:flex;flex-direction:column;gap:12px}
+.tabbar{flex:none;height:74px;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:flex-start;padding-top:9px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:700;color:#9aa9b1}
+.tab svg{width:23px;height:23px}
+.tab.on{color:var(--teal)}
+.home-ind{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:5px;background:#111;opacity:.85}
+
+.card{background:#fff;border-radius:20px;padding:14px;box-shadow:0 1px 0 var(--line)}
+.row{display:flex;align-items:center;gap:10px}
+.av{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:"Fredoka";font-weight:600;color:#fff;font-size:17px}
+.small{font-size:12px;color:var(--muted)}
+.tt{font-weight:800;font-size:14.5px}
+.pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:99px;white-space:nowrap}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding-top:4px}
+.hdr h2{font-size:24px;color:var(--deep)}
+.ib{width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;position:relative}
+.ib svg{width:20px;height:20px;color:var(--deep)}
+.dot{position:absolute;top:7px;right:8px;width:9px;height:9px;border-radius:50%;background:var(--orange);border:2px solid #fff}
+
+/* acasa */
+.hero{background:linear-gradient(140deg,var(--teal),var(--navy));color:#fff;border-radius:24px;padding:16px;position:relative;overflow:hidden}
+.hero .dots{position:absolute;right:-40px;top:-50px;width:150px;opacity:.18}
+.hero .kid{width:56px;height:56px;border-radius:50%;border:3px solid rgba(255,255,255,.7);object-fit:cover}
+.hero h3{font-size:21px}
+.hero .st{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;position:relative}
+.hero .st span{background:rgba(255,255,255,.18);padding:6px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.qa{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.qa div{background:#fff;border-radius:16px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:var(--deep);text-align:center}
+.qa i{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-style:normal;font-size:18px}
+.sec{font-family:"Fredoka";font-weight:600;font-size:16px;color:var(--deep);display:flex;justify-content:space-between;align-items:baseline}
+.sec a{font-family:"Nunito Sans";font-size:12px;font-weight:800;color:var(--teal)}
+.mini{display:flex;gap:10px;align-items:center}
+.mini img{width:64px;height:64px;border-radius:14px;object-fit:cover;flex:none}
+
+/* jurnal */
+.days{display:flex;gap:6px}
+.days div{flex:1;background:#fff;border-radius:14px;text-align:center;padding:7px 0;font-size:10.5px;font-weight:700;color:var(--muted)}
+.days div b{display:block;font-family:"Fredoka";font-size:17px;color:var(--ink)}
+.days .on{background:var(--teal);color:#dff3f9}.days .on b{color:#fff}
+.tl{position:relative;display:flex;flex-direction:column;gap:9px}
+.tl:before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.ti{display:flex;gap:10px;position:relative}
+.ti .b{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;font-size:19px;flex:none;border:3px solid var(--cream)}
+.ti .c{flex:1;background:#fff;border-radius:16px;padding:9px 12px}
+.ti .c .h{display:flex;justify-content:space-between;font-weight:800;font-size:13.5px}
+.ti .c .h span{color:var(--muted);font-weight:700;font-size:12px}
+.ti .c p{font-size:12px;color:var(--muted);margin-top:2px}
+.meter{display:flex;gap:3px;margin-top:5px}
+.meter i{width:18px;height:6px;border-radius:3px;background:var(--line)}
+.meter i.f{background:var(--green)}
+
+/* galerie */
+.chips{display:flex;gap:6px}
+.chips span{font-size:12px;font-weight:800;padding:7px 12px;border-radius:99px;background:#fff;color:var(--muted)}
+.chips .on{background:var(--deep);color:#fff}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal img{width:100%;height:118px;object-fit:cover;border-radius:16px;display:block}
+.gal .w{grid-column:span 2;height:150px}
+.post .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.heart{color:#e2546b;font-weight:800;font-size:12.5px}
+
+/* chat */
+.chathead{background:#fff;padding:6px 16px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
+.msgs{flex:1;padding:14px 14px 0;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.m{max-width:80%;padding:9px 12px;border-radius:18px;font-size:13px;line-height:1.38}
+.m.in{background:#fff;border-bottom-left-radius:6px;align-self:flex-start}
+.m.out{background:var(--teal);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.m img{width:100%;border-radius:12px;margin-top:6px;display:block}
+.m small{display:block;font-size:10.5px;opacity:.65;margin-top:3px;text-align:right}
+.daysep{align-self:center;font-size:11px;font-weight:800;color:var(--muted);background:#ece6df;padding:4px 10px;border-radius:99px}
+.compose{flex:none;background:#fff;padding:10px 12px 26px;display:flex;gap:8px;align-items:center;border-top:1px solid var(--line)}
+.compose div{flex:1;background:var(--cream);border-radius:99px;padding:10px 14px;font-size:13px;color:#9aa9b1}
+.compose b{width:38px;height:38px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#fff}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal .d{font-size:10px;font-weight:800;color:var(--muted)}
+.cal .n{height:30px;display:grid;place-items:center;font-size:12.5px;font-weight:700;border-radius:10px;position:relative}
+.cal .o{color:#c2cbd0}
+.cal .t{background:var(--teal);color:#fff}
+.cal .e:after{content:"";position:absolute;bottom:3px;width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.cal .g:after{background:var(--green)}
+.ev{display:flex;gap:11px;align-items:center}
+.ev .dt{width:46px;height:50px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none}
+.ev .dt b{font-family:"Fredoka";font-size:19px;line-height:1}
+.ev .dt span{font-size:10px;font-weight:800;text-transform:uppercase}
+.rsvp{margin-top:8px;display:flex;gap:6px}
+.rsvp span{flex:1;text-align:center;font-size:12px;font-weight:800;padding:8px;border-radius:12px}
+
+/* plati */
+.bal{background:var(--deep);color:#fff;border-radius:24px;padding:18px;position:relative;overflow:hidden}
+.bal .amt{font-family:"Fredoka";font-size:34px;margin:4px 0 2px}
+.bal .btn{margin-top:14px;background:#fff;color:var(--deep);text-align:center;font-weight:800;padding:11px;border-radius:14px;font-size:14px}
+.bal .dots{position:absolute;right:-40px;top:-40px;width:160px;opacity:.25}
+.inv{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.inv:last-child{border:0;padding-bottom:2px}
+
+/* preluare */
+.pick{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid var(--line)}
+.pick:last-child{border:0}
+.radio{width:22px;height:22px;border-radius:50%;border:2px solid #c8d2d7;flex:none}
+.radio.on{border:7px solid var(--teal)}
+.qr{background:#fff;border-radius:22px;padding:16px;display:flex;gap:14px;align-items:center}
+.qr svg{width:92px;height:92px;flex:none}
+.cta{background:var(--teal);color:#fff;text-align:center;font-weight:800;padding:13px;border-radius:16px;font-size:14.5px}
+
+/* splash */
+.splash{background:linear-gradient(160deg,var(--teal) 0%,var(--navy) 70%,var(--deep) 100%);color:#fff;align-items:center}
+.splash .lg{width:118px;height:118px;border-radius:50%;margin-top:120px;box-shadow:0 0 0 8px rgba(255,255,255,.12)}
+.splash h2{font-size:28px;margin-top:22px;text-align:center}
+.splash p{opacity:.85;font-size:14px;text-align:center;margin-top:8px;padding:0 34px;line-height:1.45}
+.splash .dots{position:absolute;left:-60px;bottom:110px;width:220px;opacity:.28}
+.splash .bt{position:absolute;bottom:52px;left:24px;right:24px;display:flex;flex-direction:column;gap:10px}
+.splash .bt div{text-align:center;padding:14px;border-radius:16px;font-weight:800;font-size:15px}
+
+/* mod screenshot: ?s=N arata un singur telefon */
+body.solo{background:var(--cream)}
+body.solo .intro,body.solo .cap{display:none}
+body.solo .grid{display:block;padding:0}
+body.solo .shot{display:none}
+body.solo .shot.pick-me{display:block;position:absolute;left:40px;top:40px}
+</style>
+</head>
+<body>
+
+<section class="intro">
+  <img src="img/cropped-Insta-Profile-ETOS-192x192.png" alt="ETOS Academy">
+  <div>
+    <h1>ETOS Academy, în buzunarul părinților</h1>
+    <p>Simulare de aplicație mobilă pentru rețeaua de creșe, grădinițe și școli ETOS: ziua copilului, mesaje cu educatoarea, poze, evenimente, plăți și preluarea în siguranță.</p>
+    <span class="tag">Concept de aplicație · date fictive</span>
+  </div>
+</section>
+
+<main class="grid">
+
+<!-- 1. Pornire -->
+<div class="shot" data-n="1">
+  <div class="phone"><div class="screen splash">
+    <div class="island"></div>
+    <div class="sb light" style="width:100%"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <img class="dots" src="img/ETOS_Dots_Orange_large-480x390.png" alt="">
+    <img class="lg" src="img/cropped-Insta-Profile-ETOS-192x192.png" alt="ETOS Academy">
+    <h2>Bine ați venit!</h2>
+    <p>Fiți aproape de ziua copilului vostru, oriunde v-ați afla.</p>
+    <div class="bt">
+      <div style="background:#fff;color:var(--deep)">Intră în cont</div>
+      <div style="background:rgba(255,255,255,.14)">Am primit un cod de invitație</div>
+    </div>
+    <div class="home-ind" style="background:#fff"></div>
+  </div></div>
+  <div class="cap"><b>Pornire</b><span>Contul se activează cu codul primit de la grădiniță. Fără parole de reținut.</span></div>
+</div>
+
+<!-- 2. Acasa -->
+<div class="shot" data-n="2">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="body">
+      <div class="hdr">
+        <div><div class="small">Marți, 10 noiembrie</div><h2>Bună, Andreea!</h2></div>
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="dot"></span></div>
+      </div>
+      <div class="hero">
+        <img class="dots" src="img/ETOS_Dots_Orange_large-480x390.png" alt="">
+        <div class="row">
+          <img class="kid" src="img/ETOS_SedintaFotoSincron_20240404_1331-480x320.jpg" alt="">
+          <div><h3>Maria</h3><div style="font-size:12.5px;opacity:.9">Grupa Buburuze · Heidi Brașov</div></div>
+        </div>
+        <div class="st"><span>✓ Prezentă din 08:12</span><span>😊 Bine dispusă</span><span>🍽 A mâncat tot</span></div>
+      </div>
+      <div class="qa">
+        <div><i style="background:var(--soft-teal)">📖</i>Jurnal</div>
+        <div><i style="background:var(--soft-green)">💬</i>Mesaje</div>
+        <div><i style="background:var(--soft-orange)">🗓</i>Absență</div>
+        <div><i style="background:var(--soft-rose)">🚸</i>Preluare</div>
+      </div>
+      <div class="sec">Noutăți de azi <a>Vezi tot</a></div>
+      <div class="card mini">
+        <img src="img/DSC4881_ETOS_02-480x320.jpg" alt="">
+        <div><div class="tt">12 poze noi de la atelier</div><div class="small">Doamna Ioana · acum 20 min</div></div>
+      </div>
+      <div class="card mini">
+        <div class="av" style="background:var(--orange);width:64px;height:64px;border-radius:14px;font-size:24px">🎄</div>
+        <div><div class="tt">Serbarea de iarnă, 18 dec.</div><div class="small">Confirmați participarea până vineri</div></div>
+      </div>
+    </div>
+    <nav class="tabbar">
+      <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Acasă</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg>Jurnal</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mesaje</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Cont</div>
+    </nav>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Acasă</b><span>Dintr-o privire: dacă a ajuns, cum se simte, ce a mâncat și ce e nou azi.</span></div>
+</div>
+
+<!-- 3. Jurnalul zilei -->
+<div class="shot" data-n="3">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="body">
+      <div class="hdr"><h2>Jurnalul zilei</h2><span class="pill" style="background:var(--soft-green);color:#2f7a45">Maria</span></div>
+      <div class="days">
+        <div>LUN<b>9</b></div><div class="on">MAR<b>10</b></div><div>MIE<b>11</b></div><div>JOI<b>12</b></div><div>VIN<b>13</b></div>
+      </div>
+      <div class="tl">
+        <div class="ti"><div class="b" style="background:var(--soft-teal)">👋</div><div class="c"><div class="h">Sosire <span>08:12</span></div><p>Adusă de mama</p></div></div>
+        <div class="ti"><div class="b" style="background:var(--soft-orange)">🥣</div><div class="c"><div class="h">Mic dejun <span>08:45</span></div><p>Terci de ovăz cu fructe</p><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div></div></div>
+        <div class="ti"><div class="b" style="background:var(--soft-green)">🎨</div><div class="c"><div class="h">Atelier de pictură <span>10:00</span></div><p>A pictat o toamnă cu frunze ruginii</p></div></div>
+        <div class="ti"><div class="b" style="background:var(--soft-orange)">🍲</div><div class="c"><div class="h">Prânz <span>12:15</span></div><p>Supă de legume, piept de pui cu orez</p><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div></div>
+        <div class="ti"><div class="b" style="background:var(--soft-teal)">😴</div><div class="c"><div class="h">Somn <span>13:00 - 14:40</span></div><p>1 h 40 min, liniștit</p></div></div>
+        <div class="ti"><div class="b" style="background:var(--soft-rose)">🧸</div><div class="c"><div class="h">Joacă în curte <span>15:30</span></div><p>Jocuri cu mingea, în grup</p></div></div>
+      </div>
+    </div>
+    <nav class="tabbar">
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Acasă</div>
+      <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg>Jurnal</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mesaje</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Cont</div>
+    </nav>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Jurnalul zilei</b><span>Educatoarea completează din tabletă, părintele vede pe loc: masă, somn, activități.</span></div>
+</div>
+
+<!-- 4. Galerie -->
+<div class="shot" data-n="4">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="body">
+      <div class="hdr"><h2>Momente</h2><div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></div></div>
+      <div class="chips"><span class="on">Azi</span><span>Săptămâna</span><span>Albume</span></div>
+      <div class="card post">
+        <div class="row"><div class="av" style="background:var(--green)">I</div><div><div class="tt">Doamna Ioana</div><div class="small">Atelier de pictură · 10:40</div></div></div>
+        <div class="gal" style="margin-top:10px">
+          <img class="w" src="img/ETOS_SedintaFotoSincron_20240404_1153-480x320.jpg" alt="">
+          <img src="img/DSC4881_ETOS_02-480x320.jpg" alt="">
+          <img src="img/ETOS_SedintaFotoSincron_20240404_1470-480x320.jpg" alt="">
+        </div>
+        <div class="meta"><span class="heart">♥ 18 părinți</span><span class="small">+9 poze</span></div>
+      </div>
+      <div class="card post">
+        <div class="row"><div class="av" style="background:var(--orange)">M</div><div><div class="tt">Doamna Mihaela</div><div class="small">Ora de muzică · 09:15</div></div></div>
+        <div class="gal" style="margin-top:10px"><img class="w" src="img/ETOS_SedintaFotoSincron_20240404_1562-480x320.jpg" alt=""></div>
+      </div>
+    </div>
+    <nav class="tabbar">
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Acasă</div>
+      <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg>Jurnal</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mesaje</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Cont</div>
+    </nav>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Momente foto</b><span>Pozele zilei, vizibile doar părinților din grupă. Descărcare cu un tap.</span></div>
+</div>
+
+<!-- 5. Mesaje -->
+<div class="shot" data-n="5">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb" style="background:#fff"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="chathead">
+      <span style="font-size:22px;color:var(--teal)">‹</span>
+      <div class="av" style="background:var(--green)">I</div>
+      <div><div class="tt">Doamna Ioana</div><div class="small" style="color:#2f7a45">● Educatoare · Grupa Buburuze</div></div>
+    </div>
+    <div class="msgs">
+      <div class="daysep">Azi</div>
+      <div class="m out">Bună dimineața! Maria a tușit puțin aseară, vă rog să fiți atentă dacă e obosită. 🙏<small>08:20</small></div>
+      <div class="m in">Bună dimineața! Sigur, o urmăresc. Deocamdată e veselă și s-a jucat frumos la atelier.<small>10:42</small></div>
+      <div class="m in">Uitați ce a pictat azi 🍂<img src="img/DSC0160_ETOS_01-480x334.jpg" alt=""><small>10:43</small></div>
+      <div class="m out">Ce frumos! Mulțumesc mult! ❤️<small>10:51</small></div>
+    </div>
+    <div class="compose"><div>Scrieți un mesaj…</div><b>➤</b></div>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Mesaje cu educatoarea</b><span>Fără grupuri de WhatsApp: discuții private, în program, cu istoric păstrat.</span></div>
+</div>
+
+<!-- 6. Calendar -->
+<div class="shot" data-n="6">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="body">
+      <div class="hdr"><h2>Noiembrie</h2><div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div>
+      <div class="card">
+        <div class="cal">
+          <div class="d">L</div><div class="d">M</div><div class="d">M</div><div class="d">J</div><div class="d">V</div><div class="d">S</div><div class="d">D</div>
+          <div class="n o">27</div><div class="n o">28</div><div class="n o">29</div><div class="n o">30</div><div class="n o">31</div><div class="n">1</div><div class="n">2</div>
+          <div class="n">3</div><div class="n">4</div><div class="n">5</div><div class="n e g">6</div><div class="n">7</div><div class="n">8</div><div class="n">9</div>
+          <div class="n">10</div><div class="n t">11</div><div class="n">12</div><div class="n e">13</div><div class="n">14</div><div class="n">15</div><div class="n">16</div>
+          <div class="n">17</div><div class="n">18</div><div class="n">19</div><div class="n e g">20</div><div class="n">21</div><div class="n">22</div><div class="n">23</div>
+          <div class="n">24</div><div class="n">25</div><div class="n">26</div><div class="n">27</div><div class="n e">28</div><div class="n">29</div><div class="n">30</div>
+        </div>
+      </div>
+      <div class="sec">Urmează</div>
+      <div class="card">
+        <div class="ev"><div class="dt" style="background:var(--soft-orange);color:#b56a18"><b>13</b><span>nov</span></div>
+          <div style="flex:1"><div class="tt">Ședința cu părinții</div><div class="small">17:30 · Sala Buburuze</div></div></div>
+        <div class="rsvp"><span style="background:var(--teal);color:#fff">Particip</span><span style="background:var(--cream);color:var(--muted)">Nu pot</span></div>
+      </div>
+      <div class="card">
+        <div class="ev"><div class="dt" style="background:var(--soft-green);color:#2f7a45"><b>20</b><span>nov</span></div>
+          <div style="flex:1"><div class="tt">Excursie la Muzeul Științelor</div><div class="small">Acord semnat ✓ · 9:00 - 13:00</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ev"><div class="dt" style="background:var(--soft-orange);color:#b56a18"><b>28</b><span>nov</span></div>
+          <div style="flex:1"><div class="tt">Grădinița închisă</div><div class="small">Zi liberă legală</div></div></div>
+      </div>
+    </div>
+    <nav class="tabbar">
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Acasă</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg>Jurnal</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mesaje</div>
+      <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Cont</div>
+    </nav>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Calendar și evenimente</b><span>Ședințe, excursii, zile libere. Confirmare și acorduri semnate direct din telefon.</span></div>
+</div>
+
+<!-- 7. Plati -->
+<div class="shot" data-n="7">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="body">
+      <div class="hdr"><h2>Plăți</h2><span class="pill" style="background:var(--soft-teal);color:var(--navy)">Maria</span></div>
+      <div class="bal">
+        <img class="dots" src="img/ETOS_Dots_Orange_large-480x390.png" alt="">
+        <div style="font-size:12.5px;opacity:.85;position:relative">De plată până pe 15 noiembrie</div>
+        <div class="amt">2.450 lei</div>
+        <div style="font-size:12.5px;opacity:.85">Taxă școlarizare decembrie + masă</div>
+        <div class="btn">Plătește cu cardul</div>
+      </div>
+      <div class="sec">Istoric</div>
+      <div class="card" style="padding:4px 14px">
+        <div class="inv"><div><div class="tt">Noiembrie 2026</div><div class="small">Factura ETOS-1184</div></div><span class="pill" style="background:var(--soft-green);color:#2f7a45">Achitat</span></div>
+        <div class="inv"><div><div class="tt">Opțional: robotică</div><div class="small">Semestrul I</div></div><span class="pill" style="background:var(--soft-green);color:#2f7a45">Achitat</span></div>
+        <div class="inv"><div><div class="tt">Octombrie 2026</div><div class="small">Factura ETOS-1102</div></div><span class="pill" style="background:var(--soft-green);color:#2f7a45">Achitat</span></div>
+        <div class="inv"><div><div class="tt">Septembrie 2026</div><div class="small">Factura ETOS-1027</div></div><span class="pill" style="background:var(--soft-green);color:#2f7a45">Achitat</span></div>
+      </div>
+      <div class="card row" style="gap:12px"><div class="av" style="background:var(--soft-orange);font-size:19px">🧾</div><div><div class="tt">Adeverință pentru angajator</div><div class="small">Generată automat, în PDF</div></div></div>
+    </div>
+    <nav class="tabbar">
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Acasă</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg>Jurnal</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mesaje</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</div>
+      <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Cont</div>
+    </nav>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Plăți și facturi</b><span>Taxe, opționale și facturi într-un singur loc, cu plată online.</span></div>
+</div>
+
+<!-- 8. Preluare -->
+<div class="shot" data-n="8">
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="sb"><span>9:41</span><span class="ic">●●● ▮</span></div>
+    <div class="body">
+      <div class="hdr"><h2>Cine o ia azi?</h2></div>
+      <div class="small" style="margin-top:-6px">Educatoarea vede persoana aleasă și verifică codul la poartă.</div>
+      <div class="card" style="padding:4px 14px">
+        <div class="pick"><div class="av" style="background:var(--teal)">A</div><div style="flex:1"><div class="tt">Andreea (mama)</div><div class="small">Părinte</div></div><div class="radio"></div></div>
+        <div class="pick"><div class="av" style="background:var(--navy)">R</div><div style="flex:1"><div class="tt">Radu (tata)</div><div class="small">Părinte</div></div><div class="radio"></div></div>
+        <div class="pick"><div class="av" style="background:var(--orange)">E</div><div style="flex:1"><div class="tt">Elena (bunica)</div><div class="small">Persoană autorizată · CI verificat</div></div><div class="radio on"></div></div>
+        <div class="pick" style="color:var(--teal);font-weight:800;font-size:13.5px"><span style="font-size:20px;width:42px;text-align:center">+</span>Adaugă o persoană</div>
+      </div>
+      <div class="qr">
+        <svg viewBox="0 0 21 21" shape-rendering="crispEdges"><rect width="21" height="21" fill="#fff"/><g fill="#0b3a52"><path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/></g><g fill="#fff"><path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/></g><g fill="#0b3a52"><path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 1h1v2H8zM10 0h2v1h-2zM9 4h2v2H9zM12 3h1v3h-1zM8 8h3v1H8zM13 8h2v2h-2zM16 8h4v1h-4zM8 10h1v3H8zM10 11h3v1h-3zM15 11h1v4h-1zM17 10h3v2h-3zM9 14h2v2H9zM12 13h2v1h-2zM8 17h3v1H8zM13 16h2v3h-2zM17 14h3v1h-3zM16 17h2v2h-2zM19 16h2v5h-2zM10 19h2v2h-2zM0 8h2v1H0zM3 9h2v2H3zM1 11h1v2H1zM5 12h2v1H5z"/></g></svg>
+        <div><div class="tt">Cod de preluare</div><div class="small">Valabil azi, 16:00 - 18:30. Elena primește codul prin SMS.</div></div>
+      </div>
+      <div class="cta">Trimite codul către Elena</div>
+    </div>
+    <nav class="tabbar">
+      <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Acasă</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg>Jurnal</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mesaje</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</div>
+      <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Cont</div>
+    </nav>
+    <div class="home-ind"></div>
+  </div></div>
+  <div class="cap"><b>Preluare în siguranță</b><span>Părintele alege cine vine după copil; poarta verifică un cod valabil doar în ziua respectivă.</span></div>
+</div>
+
+</main>
+
+<script>
+  var s = new URLSearchParams(location.search).get('s');
+  if (s) {
+    document.body.classList.add('solo');
+    var el = document.querySelector('.shot[data-n="' + s + '"]');
+    if (el) el.classList.add('pick-me');
+  }
+</script>
+</body>
+</html>
